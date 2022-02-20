@@ -2,7 +2,19 @@
 
 init()
 
-function init() {
+/**
+ * @returns {void}
+ */
+async function init() {
+    const isAuthorized = await miro.isAuthorized()
+    if(!isAuthorized) await miro.requestAuthorization()
+    readyMiro()
+}
+
+/**
+ * @returns {void}
+ */
+function readyMiro() {
     miro.onReady(() => {
         miro.initialize({
             extensionPoints: {
@@ -74,3 +86,4 @@ function sumPoints(points) {
 function showNotification(result) {
     if (result !== 0) miro.showNotification('total: ' + result + 'pt!')
 }
+
