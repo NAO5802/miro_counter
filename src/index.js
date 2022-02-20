@@ -20,6 +20,10 @@ function init() {
     })
 }
 
+/**
+ *
+ * @returns {Promise<void>}
+ */
 async function selectionCallback() {
     const points = await getPoints()
     const result = sumPoints(points)
@@ -58,7 +62,8 @@ async function getPoints() {
  * @returns {number}
  */
 function sumPoints(points) {
-    return points.reduce((sum, point)=> sum + point)
+    if(points.length === 0) return 0
+    return points.reduce((sum, point)=> sum + point, 0)
 }
 
 /**
