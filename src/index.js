@@ -9,6 +9,7 @@ function init() {
                 toolbar: {
                     title: 'Sticker point counter',
                     toolbarSvgIcon: '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
+                    librarySvgIcon: '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
                     onClick: () => {
                         miro.showNotification('Select sticker to count!')
                         miro.addListener('SELECTION_UPDATED', selectionCallback)
