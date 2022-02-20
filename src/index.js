@@ -8,8 +8,8 @@ function init() {
             extensionPoints: {
                 toolbar: {
                     title: 'Sticker point counter',
-                    toolbarSvgIcon: '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
-                    librarySvgIcon: '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
+                    toolbarSvgIcon: '<svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><defs><style>.cls-1 {fill: none;}</style></defs><g><rect class="cls-1" width="40" height="40"/><path d="M31,6H9A3.00328,3.00328,0,0,0,6,9V31a3.00328,3.00328,0,0,0,3,3H23a.99928.99928,0,0,0,.707-.293l10-10A.99928.99928,0,0,0,34,23V9A3.00328,3.00328,0,0,0,31,6ZM9,32a1.00067,1.00067,0,0,1-1-1V9A1.001,1.001,0,0,1,9,8H31a1.001,1.001,0,0,1,1,1V22H25a3.00328,3.00328,0,0,0-3,3v7Zm21.58594-8L24,30.58594V25a1.00067,1.00067,0,0,1,1-1Z"/></g></svg>',
+                    librarySvgIcon: '<svg id="Outline" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><defs><style>.cls-1 {fill: none;}</style></defs><g><rect class="cls-1" width="40" height="40"/><path d="M31,6H9A3.00328,3.00328,0,0,0,6,9V31a3.00328,3.00328,0,0,0,3,3H23a.99928.99928,0,0,0,.707-.293l10-10A.99928.99928,0,0,0,34,23V9A3.00328,3.00328,0,0,0,31,6ZM9,32a1.00067,1.00067,0,0,1-1-1V9A1.001,1.001,0,0,1,9,8H31a1.001,1.001,0,0,1,1,1V22H25a3.00328,3.00328,0,0,0-3,3v7Zm21.58594-8L24,30.58594V25a1.00067,1.00067,0,0,1,1-1Z"/></g></svg>',
                     onClick: () => {
                         miro.showNotification('Select sticker to count!')
                         miro.addListener('SELECTION_UPDATED', selectionCallback)
