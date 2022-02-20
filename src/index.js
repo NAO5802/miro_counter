@@ -8,11 +8,10 @@ function init() {
             extensionPoints: {
                 toolbar: {
                     title: 'Sticker point counter',
-                    librarySvgIcon: '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
-                    toolbarSvgIcon: '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
+                    svgIcon: '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
                     onClick: () => {
                         miro.showNotification('Select sticker to count!')
-                        miro.addEventListener('SELECTION_UPDATED', selectionCallback)
+                        miro.addListener('SELECTION_UPDATED', selectionCallback)
                     }
                 }
             }
@@ -20,6 +19,8 @@ function init() {
     })
 }
 
-function selectionCallback() {
+async function selectionCallback() {
     console.log('count')
+    const selection = await miro.board.selection.get()
+    console.log('selection:', selection)
 }
