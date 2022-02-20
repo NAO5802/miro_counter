@@ -21,7 +21,51 @@ function init() {
 }
 
 async function selectionCallback() {
-    console.log('count')
-    const selection = await miro.board.selection.get()
-    console.log('selection:', selection)
+    const points = await getPoints()
+    const result = sumPoints(points)
+    showNotification(result)
+}
+
+/**
+ *
+ * @returns {Promise<(string|string|*)[]>}
+ */
+async function getTags() {
+    const selections = await miro.board.selection.get()
+    return selections
+        .filter((el) => el.type === "STICKER")
+        .flatMap((sticker) => sticker.tags)
+        .map((tag) => tag.title)
+}
+
+/**
+ *
+ * @returns {Promise<(number|number)[]>}
+ */
+async function getPoints() {
+    const tags = await getTags()
+    return tags
+            .filter((tag) => tag.match(/^[\dpt]/))
+            .map((tagText) => {
+                const point = parseFloat(tagText.replace('pt', ''))
+                return point ? point : 0
+            })
+}
+
+/**
+ *
+ * @param {number[]} points
+ * @returns {number}
+ */
+function sumPoints(points) {
+    return points.reduce((sum, point)=> sum + point)
+}
+
+/**
+ *
+ * @param {number} result
+ * @returns {void}
+ */
+function showNotification(result) {
+    if (result !== 0) miro.showNotification('total: ' + result + 'pt!')
 }
