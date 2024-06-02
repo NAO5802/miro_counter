@@ -16,7 +16,7 @@ async function init() {
  * @returns {void}
  */
 async function addEventToMiro() {
-    await miro.board.notifications.showInfo('Select sticker to count!')
+    await miro.board.notifications.showInfo('Select items to count!')
     miro.board.ui.on('selection:update', selectionCallback)
 }
 
@@ -37,8 +37,7 @@ async function selectionCallback(event) {
  */
 async function getTags(selections) {
     const promises = selections
-        .filter((el) => el.type === "sticky_note")
-        .flatMap((sticker) => sticker.tagIds)
+        .flatMap((item) => item.tagIds ? item.tagIds : [])
         .map(async (tagId) => {
             const tag = await miro.board.getById(tagId)
             return tag.title
