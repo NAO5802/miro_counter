@@ -23,3 +23,8 @@ npx http-server -p 3600
 5. リリース
    - PRをmainにマージすることでリリースされる
      - mainブランチのソースをGithub pagesでホストしているため
+
+## ロゴについて
+
+以下からお借りしました🙏
+https://www.veryicon.com/icons/transport/car-transportation-parking-lot/parking-sign-1.html
